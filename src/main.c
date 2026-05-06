@@ -18,6 +18,13 @@ int main(void)
 
 	print_list(list);
 
+	printf("Head: %d\n"
+		   "Tail: %d\n"
+		   "Length: %d\n",
+		   list->head->value,
+		   list->tail->value,
+		   list->length);
+
 	node_t* temp = find_node(list, 10);
 	printf("find node with value: %d\n", temp->value);
 

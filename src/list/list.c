@@ -3,6 +3,31 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/*
+    TODO
+    
+    - Link
+    https://www.geeksforgeeks.org/dsa/linked-list-data-structure/
+
+    Insert
+    - insert_at_tail
+    - insert_before
+    - insert_after
+
+    Delete
+    - delete_all
+
+    Search
+    - get_length
+    - contains
+    - nth_from_end
+
+    Algorithms
+    - sort_list
+    - copy_list
+    - detect_cycle
+*/
+
 list_t* create_list()
 {
 	list_t* list = malloc(sizeof(list_t));
@@ -35,6 +60,14 @@ node_t* insert_at_head(list_t* list, node_t* node_to_insert)
 {
 	node_to_insert->next = list->head;
 	list->head = node_to_insert;
+
+	if(list->tail == NULL)
+	{
+		list->tail = node_to_insert;
+	}
+
+	list->length++;
+
 	return node_to_insert;
 }
 
@@ -57,6 +90,8 @@ node_t* reverse_list(list_t* list)
 	node_t* prev = NULL;
 	node_t* curr = list->head;
 	node_t* next = NULL;
+
+	list->tail = list->head;
 
 	while(curr != NULL)
 	{
@@ -86,7 +121,14 @@ node_t* remove_node(list_t* list, int value)
 			{
 				prev->next = curr->next;
 			}
+
+			if(curr == list->tail)
+			{
+				list->tail = prev;
+			}
+
 			free_node(curr);
+			list->length--;
 			return list->head;
 		}
 		prev = curr;
