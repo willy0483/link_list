@@ -3,6 +3,27 @@
 
 #include "../node/node.h"
 
+/*
+    TODO
+    
+    - Link
+    https://www.geeksforgeeks.org/dsa/linked-list-data-structure/
+
+    Insert
+    - insert_before
+    - insert_after
+
+    Search
+    - get_length
+    - contains
+    - nth_from_end
+
+    Algorithms
+    - sort_list
+    - copy_list
+    - detect_cycle
+*/
+
 struct list
 {
 	node_t* head;
@@ -18,6 +39,8 @@ node_t* insert_at_head(list_t* list, node_t* node_to_insert);
 node_t* find_node(list_t* list, int value);
 node_t* reverse_list(list_t* list);
 node_t* remove_node(list_t* list, int value);
+node_t* insert_at_tail(list_t* list, node_t* node_to_insert);
+void clear_list(list_t* list);
 
 void print_list(list_t* list);
 

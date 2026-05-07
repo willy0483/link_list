@@ -34,7 +34,7 @@ clean:
 	rm -rf $(BUILDDIR)
 
 debug: $(BINARY) 
-	valgrind --leak-check=yes $(BINARY)
+	valgrind --leak-check=yes --track-origins=yes $(BINARY)
 
 info:
 	@echo "Source files: $(CFILES)"

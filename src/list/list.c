@@ -3,31 +3,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-/*
-    TODO
-    
-    - Link
-    https://www.geeksforgeeks.org/dsa/linked-list-data-structure/
-
-    Insert
-    - insert_at_tail
-    - insert_before
-    - insert_after
-
-    Delete
-    - delete_all
-
-    Search
-    - get_length
-    - contains
-    - nth_from_end
-
-    Algorithms
-    - sort_list
-    - copy_list
-    - detect_cycle
-*/
-
 list_t* create_list()
 {
 	list_t* list = malloc(sizeof(list_t));
@@ -137,9 +112,52 @@ node_t* remove_node(list_t* list, int value)
 	return list->head;
 }
 
+node_t* insert_at_tail(list_t* list, node_t* node_to_insert)
+{
+
+	if(list->tail == NULL)
+	{
+		list->head = node_to_insert;
+		list->tail = node_to_insert;
+		list->length++;
+		return node_to_insert;
+	}
+	list->tail->next = node_to_insert;
+	list->tail = node_to_insert;
+	list->length++;
+	return node_to_insert;
+}
+
+void clear_list(list_t* list)
+{
+	node_t* curr = list->head;
+
+	while(curr != NULL)
+	{
+		node_t* next = curr->next;
+		free_node(curr);
+		curr = next;
+	}
+
+	list->head = NULL;
+	list->tail = NULL;
+	list->length = 0;
+}
+
 void print_list(list_t* list)
 {
 	node_t* node = list->head;
+
+	if(list->head != NULL && list->tail != NULL)
+	{
+		printf("Head: %d\n"
+			   "Tail: %d\n"
+			   "Length: %d\n",
+			   list->head->value,
+			   list->tail->value,
+			   list->length);
+	}
+
 	while(node != NULL)
 	{
 		printf("%d - ", node->value);
