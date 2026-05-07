@@ -5,24 +5,10 @@
 
 /*
     TODO
-    
-    - Link
-    https://www.geeksforgeeks.org/dsa/linked-list-data-structure/
 
-    Insert
-    - insert_before
-    - insert_after
-
-    Search
-    - get_length
-    - contains
-    - nth_from_end
-
-    Algorithms
-    - sort_list
-    - copy_list
-    - detect_cycle
-*/
+    start over - add https://www.geeksforgeeks.org/dsa/doubly-linked-list/
+    Doubly Linked List
+   */
 
 struct list
 {
